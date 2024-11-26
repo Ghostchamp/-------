@@ -25,7 +25,7 @@ func main() {
 	rand.Seed(time.Now().UnixNano())
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8080" // Устанавливаем порт по умолчанию
+		port = "10000" // Устанавливаем порт по умолчанию
 	}
 	r := gin.Default()
 
