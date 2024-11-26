@@ -2,8 +2,10 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"math/rand"
 	"net/http"
+	"os"
 	"strconv"
 	"time"
 
@@ -21,6 +23,10 @@ var otpStore = map[string]string{}
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080" // Устанавливаем порт по умолчанию
+	}
 	r := gin.Default()
 
 	// Статические файлы
@@ -34,7 +40,10 @@ func main() {
 
 	// Запуск сервера
 	fmt.Println("Server is running on http://localhost:8080")
-	r.Run(":8080")
+	log.Printf("Сервер запущен на порту %s", port)
+	if err := r.Run(":" + port); err != nil {
+		log.Fatalf("Не удалось запустить сервер: %v", err)
+	}
 }
 
 func homePage(c *gin.Context) {
