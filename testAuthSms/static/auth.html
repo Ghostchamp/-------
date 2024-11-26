@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/script.js" defer></script>
+  <title>Авторизация</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Авторизация</h1>
+    <form id="auth-form">
+      <label for="phone">Номер телефона:</label>
+      <input type="text" id="phone" placeholder="+7 (123) 456-78-90" required>
+      <button type="submit">Отправить SMS</button>
+    </form>
+    <div id="sms-code-container" class="hidden">
+      <label for="sms-code">Введите код из SMS:</label>
+      <input type="text" id="sms-code" placeholder="123456" required>
+      <button onclick="verifySMS()">Подтвердить</button>
+    </div>
+    <div id="register-container" class="hidden">
+      <h2>Регистрация</h2>
+      <label for="name">Имя:</label>
+      <input type="text" id="name" placeholder="Ваше имя" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="example@mail.com" required>
+      <button onclick="registerUser()">Зарегистрироваться</button>
+    </div>
+  </div>
+  <div id="notification"></div>
+</body>
+</html>
