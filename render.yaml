@@ -1,7 +1,7 @@
 services:
   - type: web
-    name: sms-auth
-    env: go
-    buildCommand: go build -o main .
-    startCommand: ./main
+    name: piercing-tycoon-miniapp
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     plan: free

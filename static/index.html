@@ -1,16 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/static/styles.css">
-  <title>Главная</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Piercing Tycoon Mini App</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Добро пожаловать!</h1>
-    <p>Чтобы продолжить, войдите в личный кабинет.</p>
-    <button onclick="window.location.href='/static/auth.html'">Войти в личный кабинет</button>
+  <div id="hud">
+    <div><strong>Деньги:</strong> <span id="money">0</span></div>
+    <div><strong>Репутация:</strong> <span id="reputation">0</span></div>
+    <div><strong>Стадия:</strong> <span id="stage">employment</span></div>
+    <div><strong>Доход/сек:</strong> <span id="income">0</span></div>
   </div>
+
+  <div id="controls">
+    <button data-skill="speed">Скорость +</button>
+    <button data-skill="accuracy">Аккуратность +</button>
+    <button data-skill="communication">Коммуникация +</button>
+    <button data-skill="hygiene">Гигиена +</button>
+  </div>
+
+  <div id="event-box">
+    <h3>Ситуация</h3>
+    <p id="event-text">Событие появится после синка.</p>
+    <div id="event-answers"></div>
+  </div>
+
+  <div id="leaderboard">
+    <h3>Топ по репутации</h3>
+    <ol id="leaderboard-list"></ol>
+  </div>
+
+  <div id="game"></div>
+  <script src="/static/game.js"></script>
 </body>
 </html>
